@@ -17,6 +17,8 @@ build/                 Page sources — edit here, never edit public/ directly
   pages/*.mjs            One module per page
   build.mjs              Renders build/ -> public/, plus sitemap.xml and robots.txt
   check.mjs              Link, metadata and third-party-asset checks
+  og/card.html           Source for the social preview image
+  og/render.mjs          Renders that card to public/assets/img/og-image.png
 public/                Generated output — this is what Cloudflare Pages serves
   _headers               Security headers and cache policy
   _redirects             Path-level redirects
@@ -30,7 +32,12 @@ public/                Generated output — this is what Cloudflare Pages serves
 npm run build     # regenerate public/ from build/
 npm run check     # verify links, titles, descriptions, canonicals, no external assets
 npm run dev       # build, then serve public/ on http://localhost:8080
+npm run og        # re-render the social preview card (needs: npm i -D playwright)
 ```
+
+`playwright` is deliberately not a dependency — it would pull a browser down on
+every deploy build. Install it ad hoc on the rare occasion the card changes; the
+rendered PNG is committed.
 
 Always run `npm run build` after editing anything under `build/` and commit the
 resulting `public/` changes — CI fails if the two are out of sync.
@@ -41,6 +48,7 @@ resulting `public/` changes — CI fails if the two are out of sync.
 | --- | --- |
 | Add a timeline entry | `build/content/timeline.mjs` |
 | Change the embedded video, its title or blurb | `build/content/video.mjs` |
+| Change the social preview image | `build/og/card.html`, then `npm run og` |
 | Log a development or a correction | `build/pages/updates.mjs` |
 | Update complaint status | `build/pages/complaint.mjs` |
 | Change the "last updated" date | `build/site.config.mjs` |

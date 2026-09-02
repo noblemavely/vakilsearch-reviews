@@ -2,12 +2,13 @@
   "name": "vakilsearch-reviews",
   "version": "1.0.0",
   "private": true,
-  "description": "vakilsearch.reviews — a documented consumer account, published as a static site on Cloudflare Pages",
+  "description": "vakilsearch.reviews \u2014 a documented consumer account, published as a static site on Cloudflare Pages",
   "type": "module",
   "scripts": {
     "build": "node build/build.mjs",
     "dev": "node build/build.mjs && npx --yes serve public -l 8080",
-    "check": "node build/check.mjs"
+    "check": "node build/check.mjs",
+    "og": "node build/og/render.mjs"
   },
   "engines": {
     "node": ">=18"
