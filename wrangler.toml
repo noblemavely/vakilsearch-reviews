@@ -10,7 +10,10 @@
 # The same public/ directory is also served by Netlify (see netlify.toml).
 
 name = "vakilsearch-reviews"
-compatibility_date = "2026-09-02"
+# Pinned to a date safely in the past. Cloudflare rejects a compatibility_date
+# in the future, and `wrangler deploy --dry-run` cannot catch that because it
+# never contacts the API. Static assets have been supported since late 2024.
+compatibility_date = "2025-01-01"
 
 [assets]
 directory = "./public"
