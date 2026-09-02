@@ -1,11 +1,19 @@
-# Cloudflare Pages project configuration.
+# Cloudflare Workers configuration (Workers Static Assets).
 #
-# Deploy from a checkout with:
-#   npm run build && npx wrangler pages deploy
+# Cloudflare now routes new static sites through Workers rather than Pages, so
+# this deploys as a Worker that serves the generated files in public/ directly.
+# There is no Worker script — the [assets] binding alone is a complete config.
 #
-# The generated site in public/ is committed, so a Git-connected Pages project
-# can also be configured with an empty build command and output directory "public".
+#   npm run build && npx wrangler deploy
+#
+# The dashboard's "Import a repository" flow uses exactly those two commands.
+# The same public/ directory is also served by Netlify (see netlify.toml).
 
 name = "vakilsearch-reviews"
-pages_build_output_dir = "public"
 compatibility_date = "2026-09-02"
+
+[assets]
+directory = "./public"
+# Unknown paths serve public/404.html with a real 404 status, rather than
+# falling back to index.html the way a single-page app would.
+not_found_handling = "404-page"

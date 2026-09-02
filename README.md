@@ -52,6 +52,7 @@ recording that promptly, including an outcome that does not favour us.
 
 ## Deployment
 
-Cloudflare Pages, project `vakilsearch-reviews`, custom domain `vakilsearch.reviews`.
-Full instructions — including the one-time domain, DNS and www-redirect setup — are in
-[`docs/DEPLOY.md`](docs/DEPLOY.md).
+Cloudflare Workers Static Assets, project `vakilsearch-reviews`, custom domain
+`vakilsearch.reviews`. A `netlify.toml` is also present so the same `public/` output
+can be served from Netlify instead. Full instructions — including the one-time domain
+and www-redirect setup — are in [`docs/DEPLOY.md`](docs/DEPLOY.md).
