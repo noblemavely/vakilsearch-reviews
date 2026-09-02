@@ -6,25 +6,38 @@ prefer, because every future push deploys itself.
 
 ---
 
-## Route A — connect the repo to Cloudflare Pages (recommended, no API token)
+## Route A — import the repository from the dashboard (recommended, no API token)
 
-1. In the Cloudflare dashboard, go to **Workers & Pages → Create → Pages → Connect to Git**.
+Cloudflare now routes new static sites through **Workers** rather than Pages. The
+dashboard screen is titled "Set up your application / Configure your Worker project"
+and offers a Build command and a Deploy command. That is the expected flow — the
+repository's `wrangler.toml` is written for it.
+
+1. Cloudflare dashboard → **Compute (Workers)** → **Import a repository**.
 2. Authorise GitHub and select **`noblemavely/vakilsearch-reviews`**.
-3. Configure the build:
+3. Configure:
 
    | Setting | Value |
    | --- | --- |
    | Project name | `vakilsearch-reviews` |
-   | Production branch | `main` |
-   | Framework preset | None |
    | Build command | `npm run build` |
-   | Build output directory | `public` |
+   | Deploy command | `npx wrangler deploy` |
 
-   The build command is optional — `public/` is committed, so leaving the build
-   command empty and pointing the output directory at `public` also works.
+   Both are the dashboard defaults. `public/` is committed, so the build command is
+   belt-and-braces rather than strictly required.
 
-4. **Save and Deploy.** The first build publishes to `vakilsearch-reviews.pages.dev`.
+4. **Deploy.** `wrangler.toml` declares `[assets] directory = "./public"` with
+   `not_found_handling = "404-page"`, so the Worker serves the generated site
+   directly — there is no Worker script to write.
 5. Add the custom domain — see [Custom domain](#custom-domain) below.
+
+### If your account still offers Pages
+
+Older accounts may still show **Workers & Pages → Create → Pages → Connect to Git**.
+That works too, but it needs a different config: replace the `[assets]` block in
+`wrangler.toml` with `pages_build_output_dir = "public"`, set the build command to
+empty and the output directory to `public`. Pick one or the other — the two keys
+cannot coexist in one file.
 
 ## Route B — deploy from a checkout with Wrangler
 
@@ -32,14 +45,11 @@ prefer, because every future push deploys itself.
 npm install -g wrangler     # if not already installed
 wrangler login              # opens a browser for OAuth
 npm run build && npm run check
-wrangler pages deploy       # reads wrangler.toml: project vakilsearch-reviews, output public/
+wrangler deploy             # reads wrangler.toml and uploads public/ as static assets
 ```
 
-If the project does not exist yet, create it first:
-
-```bash
-wrangler pages project create vakilsearch-reviews --production-branch main
-```
+`wrangler deploy --dry-run` validates the config and lists the files that would be
+uploaded, without needing credentials.
 
 ## Route C — deploy from GitHub Actions
 
@@ -108,12 +118,18 @@ curl -sI https://vakilsearch.reviews/no-such-page | head -1 # 404
 curl -sI https://www.vakilsearch.reviews/ | head -3         # 301 to the apex
 ```
 
+Check the `Content-Security-Policy` and `Strict-Transport-Security` headers actually
+came through. `public/_headers` is a Pages/Netlify convention; if Workers Static
+Assets does not apply it on your account, the headers will simply be absent rather
+than erroring, and they would need to be set with a Worker script or a Cloudflare
+Transform Rule instead.
+
 Then, in Google Search Console, add `vakilsearch.reviews` as a domain property and
 submit `https://vakilsearch.reviews/sitemap.xml`. Search visibility is the point of
 this site, and indexing a new domain takes days to weeks regardless.
 
 ## Rollback
 
-Every Pages deployment is retained. **Workers & Pages → vakilsearch-reviews →
-Deployments → … → Rollback** restores any previous version immediately, which is the
+Every deployment is retained. Open the project → **Deployments** → pick an earlier
+one → **Rollback**. That restores a previous version immediately, which is the
 fastest way to take a statement down if a correction is needed urgently.
