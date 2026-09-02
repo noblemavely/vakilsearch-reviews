@@ -1,0 +1,134 @@
+import { pagenav } from '../layout.mjs';
+
+export default {
+  slug: 'before-you-pay',
+  title: 'Before you pay anyone',
+  description:
+    'Nine questions to ask before paying an online legal services company upfront in India — drawn from a ₹65,000 succession certificate engagement that went ten months without delivery.',
+  body: `
+<header class="cover compact">
+  <div class="wrap cover-inner">
+    <span class="case-tag">PRACTICAL &nbsp;·&nbsp; WRITTEN FOR THE PERSON WE WERE IN JANUARY</span>
+    <h1 class="title wide">Nine questions we wish we had asked.</h1>
+    <p class="subtitle">None of these are clever. Every one of them would have changed what happened to us, and every one takes under a minute to ask before you transfer anything.</p>
+  </div>
+</header>
+
+<main class="wrap" id="main">
+
+  <section id="intro">
+    <p class="lede">This page is not about VakilSearch specifically. It is about the shape of the problem:
+      paying a large sum upfront, to an online legal services company, for a court-dependent outcome, on
+      the strength of a phone call. If you are about to do that with anyone, take ten minutes on these
+      first.</p>
+    <div class="callout warn">
+      <h3>The single most useful habit</h3>
+      <p>Ask for every answer <strong>in writing, on email, before you pay</strong>. Not on a call, not on
+        WhatsApp voice note. If a company will confirm something verbally but not in an email, that gap
+        is the answer.</p>
+    </div>
+  </section>
+
+  <section id="questions">
+    <div class="kicker">The checklist</div>
+    <h2>Ask these, in writing, before the transfer</h2>
+
+    <ol class="checklist">
+      <li>
+        <h3>"Is this fee final, and what is explicitly excluded?"</h3>
+        <p>Not "is it all-inclusive" — they will say yes. Ask them to <em>list the exclusions</em>. Court
+          fees, stamp duty, government charges, notarisation, travel, and out-of-pocket disbursements are
+          the usual ones, and in a succession matter the court fee can exceed the professional fee.</p>
+        <p>Our ₹65,000 was described as fixed and all-inclusive. Court fees estimated above ₹75,000 were
+          disclosed in a document issued the same day we paid.</p>
+      </li>
+      <li>
+        <h3>"Which legal entity am I paying, and will the invoice come from that entity?"</h3>
+        <p>If you are asked to transfer money to a company whose name is not the brand you contacted,
+          stop. Any explanation for it — a GST saving, a processing issue, an accounts team preference —
+          is a reason to pay through the official gateway instead, not a reason to pay elsewhere.</p>
+        <p>Your remedy later depends on being able to show who you contracted with. Do not make that
+          complicated on day one.</p>
+      </li>
+      <li>
+        <h3>"Why does this price expire in an hour?"</h3>
+        <p>A deadline on a discount is a sales technique, not a fact about legal work. The correct
+          response to "this rate holds for one hour" is to let it expire. A firm that wants your matter
+          will still want it tomorrow.</p>
+      </li>
+      <li>
+        <h3>"What are the milestones and dates, and what happens if you miss them?"</h3>
+        <p>Ask for a written schedule with named deliverables, and ask what the remedy is if a date
+          slips. "It depends on the court" is legitimate for the hearing date. It is not legitimate for
+          drafting a Power of Attorney or filing a petition.</p>
+      </li>
+      <li>
+        <h3>"Who is the named advocate on my file, and what happens if they leave?"</h3>
+        <p>Get the name. Then ask what the handover process is. Files that get passed between staff
+          without handover are how ten months disappear — you spend the time re-explaining your own
+          matter to each new person.</p>
+      </li>
+      <li>
+        <h3>"What is your refund policy, in writing, if nothing is delivered?"</h3>
+        <p>Ask specifically: if in six months no document has been filed, what do I get back? Get the
+          answer on email. A company that cannot state a refund position before taking your money will
+          not develop one afterwards.</p>
+      </li>
+      <li>
+        <h3>"Can I pay in stages tied to deliverables?"</h3>
+        <p>Milestone payments are normal professional practice. Full payment upfront for a multi-month
+          court process puts all of the leverage on one side from the moment the transfer clears. If
+          staged payment is refused outright, factor that into the price.</p>
+      </li>
+      <li>
+        <h3>"I have a hard deadline on <em>this</em> date — can you commit to it in writing?"</h3>
+        <p>If any part of your matter is time-critical — a property sale, a visa, a relative's travel
+          dates — put the date in an email and ask them to confirm, in reply, that they can meet it.
+          A verbal "yes, no problem" is worth nothing three months later.</p>
+      </li>
+      <li>
+        <h3>"What is the escalation path above my account manager?"</h3>
+        <p>Get a name, a role and an email address for the person above your point of contact, before you
+          need them. When every person you speak to redirects you to someone else, having asked this
+          question at the start is the difference between escalating and starting over.</p>
+      </li>
+    </ol>
+  </section>
+
+  <section id="if-already">
+    <div class="kicker">If you have already paid</div>
+    <h2>What we would do differently, in order</h2>
+    <ol>
+      <li><strong>Move everything to email.</strong> Summarise every call in a short email to them the
+        same day: "Confirming our call — you said X by Y date." An unanswered summary email is itself
+        evidence.</li>
+      <li><strong>Put your deadline in writing, once, early.</strong> Name the date and what depends on
+        it. We flagged the Kerala sale verbally from day one; a single email would have made that
+        unarguable.</li>
+      <li><strong>Set your own review date.</strong> Decide in advance: if there is no filed document by
+        a specific date, you request cancellation. Then hold to it. Our ten months were ten one-month
+        extensions of patience, none of which we chose deliberately.</li>
+      <li><strong>Send a formal written refund demand, not a request.</strong> State the amount, the date
+        paid, what was not delivered, and a deadline for response. This is also the document a consumer
+        forum will look for first.</li>
+      <li><strong>Keep the exports, not the screenshots.</strong> Export full WhatsApp chats and download
+        email threads as files. Screenshots are easy to dismiss as selective; a full export is not.</li>
+    </ol>
+    <div class="callout">
+      <h3>Where to take it in India</h3>
+      <p>Consumer complaints against a service provider can be filed with the District Consumer Disputes
+        Redressal Commission for the district where you live or where the opposite party operates, under
+        the Consumer Protection Act, 2019. Filing is possible online through the National Consumer Helpline
+        and the e-Daakhil portal, and does not require a lawyer. This is general information about the
+        route that exists — not legal advice about your matter, which we are in no position to give.</p>
+    </div>
+  </section>
+
+</main>
+
+${pagenav(
+  { href: '/complaint/', label: 'The complaint' },
+  { href: '/updates/', label: 'Updates log' }
+)}
+`,
+};

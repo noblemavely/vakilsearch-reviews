@@ -1,0 +1,11 @@
+# Cloudflare Pages redirects.
+# Host-level redirects (www -> apex) are configured as a Redirect Rule in the
+# Cloudflare dashboard, not here — see docs/DEPLOY.md.
+
+/index.html          /               301
+/home                /               301
+/case                /               301
+/timeline/index.html /timeline/      301
+/contact             /about/#contact 301
+/reply               /about/#reply   301
+/corrections         /about/#corrections 301

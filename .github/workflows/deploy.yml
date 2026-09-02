@@ -1,0 +1,49 @@
+name: Build and deploy to Cloudflare Pages
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  deployments: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    # Job-level so the deploy step's `if` can read it. A step's own `env:` is
+    # not in scope for that step's `if`, which would silently skip the deploy.
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Build the site
+        run: npm run build
+
+      - name: Fail if the committed output is stale
+        run: |
+          if ! git diff --quiet -- public; then
+            echo "public/ is out of date with build/. Run 'npm run build' and commit the result."
+            git --no-pager diff --stat -- public
+            exit 1
+          fi
+
+      - name: Check links, metadata and external resources
+        run: npm run check
+
+      - name: Deploy to Cloudflare Pages
+        # Only deploys when the repository has Cloudflare credentials configured.
+        if: github.event_name != 'pull_request' && env.CLOUDFLARE_API_TOKEN != ''
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy public --project-name=vakilsearch-reviews --branch=main

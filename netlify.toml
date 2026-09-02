@@ -1,0 +1,14 @@
+# Netlify configuration.
+#
+# The site is currently served from Netlify because Cloudflare's API is not
+# reachable from the environment that builds it. The repository remains
+# Cloudflare Pages-ready (see wrangler.toml and docs/DEPLOY.md); both hosts read
+# the same generated output in public/, and both honour public/_headers and
+# public/_redirects natively.
+
+[build]
+  publish = "public"
+  command = "npm run build"
+
+[build.environment]
+  NODE_VERSION = "22"
