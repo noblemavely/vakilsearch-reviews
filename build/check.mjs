@@ -12,6 +12,14 @@ const pub = join(root, 'public');
 const errors = [];
 const warnings = [];
 
+/* Third-party URLs permitted to appear in the HTML. Keep in step with the
+   Content-Security-Policy in public/_headers.
+   - youtube.com/watch: the plain fallback link beside the video facade. It is a
+     link the visitor chooses to follow, not a resource the page loads. */
+const ALLOWED_EXTERNAL = [
+  'https://www.youtube.com/watch?v=',
+];
+
 async function walk(dir) {
   const out = [];
   for (const entry of await readdir(dir, { withFileTypes: true })) {
@@ -49,11 +57,19 @@ for (const file of files) {
   if (!/<h1/.test(html)) errors.push(`${rel}: no <h1>`);
   if (/<img(?![^>]*\salt=)/.test(html)) warnings.push(`${rel}: <img> without alt text`);
 
-  // No third-party origins anywhere — the CSP in _headers forbids them.
+  // No third-party origins beyond the documented allowlist. The CSP in
+  // public/_headers must stay in step with this list.
   for (const m of html.matchAll(/(?:src|href)="(https?:\/\/[^"]+)"/g)) {
-    if (!m[1].startsWith('https://vakilsearch.reviews')) {
-      errors.push(`${rel}: external resource ${m[1]}`);
-    }
+    const url = m[1];
+    const allowed = url.startsWith('https://vakilsearch.reviews')
+      || ALLOWED_EXTERNAL.some((prefix) => url.startsWith(prefix));
+    if (!allowed) errors.push(`${rel}: external resource ${url}`);
+  }
+
+  // The video must stay click-to-load: no YouTube iframe in the served HTML.
+  if (/<iframe[^>]+(youtube|ytimg)/i.test(html)) {
+    errors.push(`${rel}: YouTube iframe present in static HTML — it must only be ` +
+      `created on click by site.js, so no third-party request happens on page load`);
   }
 
   // Internal links must resolve to a real file.

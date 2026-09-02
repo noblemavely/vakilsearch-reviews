@@ -1,4 +1,5 @@
 import { events, renderEvent } from '../content/timeline.mjs';
+import { video, renderVideo } from '../content/video.mjs';
 import { pagenav } from '../layout.mjs';
 
 const keyEvents = events.filter((e) => e.key).map((e) => renderEvent(e, false)).join('\n\n');
@@ -40,6 +41,13 @@ export default {
       verbatim. Where something is our characterisation rather than a document, we say so.</p>
     <p>A formal consumer complaint on these facts is pending. Nothing here has been decided by any court,
       and we have deliberately kept this page to what we can evidence.</p>
+  </section>
+
+  <section id="video">
+    <div class="kicker">In our own words</div>
+    <h2>${video.title}</h2>
+    <p>${video.blurb.replace(/\s+/g, ' ').trim()}</p>
+    ${renderVideo()}
   </section>
 
   <section id="stats" aria-label="Key figures">

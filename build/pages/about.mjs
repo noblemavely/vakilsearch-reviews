@@ -109,9 +109,15 @@ export default {
   <section id="technical">
     <div class="kicker">Colophon</div>
     <h2>About the site itself</h2>
-    <p>A static site, hand-built, no trackers, no analytics, no cookies, no third-party scripts and no
-      advertising. Nothing about your visit is recorded by us. It carries no affiliate links and is not
-      monetised in any way.</p>
+    <p>A static site, hand-built. No analytics, no tracking scripts, no advertising, no affiliate
+      links, and no monetisation of any kind. Nothing about your visit is recorded by us.</p>
+    <p>There is one third party on the site: the video on the front page is hosted on YouTube. It is
+      set up so that <strong>nothing is requested from YouTube, and no cookie is set, unless you press
+      play</strong> — the placeholder you see before that is drawn by this site's own stylesheet. If you
+      do press play, the player is loaded from <span class="mono">youtube-nocookie.com</span> and
+      YouTube's own terms and data practices apply to it from that point, as they would on any site
+      carrying a YouTube video. If you would rather not load it at all, the link beside the video opens
+      it on YouTube directly instead.</p>
   </section>
 
 </main>

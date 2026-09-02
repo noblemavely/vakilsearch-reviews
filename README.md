@@ -40,6 +40,7 @@ resulting `public/` changes — CI fails if the two are out of sync.
 | Change | File |
 | --- | --- |
 | Add a timeline entry | `build/content/timeline.mjs` |
+| Change the embedded video, its title or blurb | `build/content/video.mjs` |
 | Log a development or a correction | `build/pages/updates.mjs` |
 | Update complaint status | `build/pages/complaint.mjs` |
 | Change the "last updated" date | `build/site.config.mjs` |
