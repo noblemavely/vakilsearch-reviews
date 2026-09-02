@@ -2,9 +2,9 @@ import { pagenav } from '../layout.mjs';
 
 export default {
   slug: 'about',
-  title: 'About this site',
+  title: 'About, corrections and right of reply',
   description:
-    'Who publishes vakilsearch.reviews, why, the standard applied to every claim, our corrections policy, and a standing right of reply for VakilSearch and Zolvit.',
+    'Who publishes VakilSearch Reviews, the evidential standard applied to every claim, the corrections policy, and a standing right of reply.',
   body: `
 <header class="cover compact">
   <div class="wrap cover-inner">

@@ -2,9 +2,9 @@ import { pagenav } from '../layout.mjs';
 
 export default {
   slug: 'before-you-pay',
-  title: 'Before you pay anyone',
+  title: 'Before you pay: 9 questions to ask',
   description:
-    'Nine questions to ask before paying an online legal services company upfront in India — drawn from a ₹65,000 succession certificate engagement that went ten months without delivery.',
+    'Nine questions to ask before paying an online legal services firm upfront in India, from a ₹65,000 engagement that ran ten months undelivered.',
   body: `
 <header class="cover compact">
   <div class="wrap cover-inner">

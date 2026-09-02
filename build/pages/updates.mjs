@@ -7,7 +7,7 @@ const entries = [
     date: '2 September 2026',
     status: 'open',
     statusLabel: 'Unresolved',
-    title: 'This site published',
+    title: 'Updates and corrections',
     body: `<p>Published this account at vakilsearch.reviews. As at today: ₹65,000 paid on 21 January 2026,
       no succession certificate delivered, no refund received against a request made on 27 July 2026, and
       a consumer complaint pending before the District Consumer Disputes Redressal Commission, Thane.</p>
@@ -42,9 +42,9 @@ const log = entries.map((e) => `  <li>
 
 export default {
   slug: 'updates',
-  title: 'Updates',
+  title: 'Updates and corrections',
   description:
-    'A dated log of every development and every correction to this account of our VakilSearch / Zolvit engagement. If the refund is paid or the complaint is decided, it is recorded here first.',
+    'A dated log of every development and every correction to this account of a VakilSearch / Zolvit engagement, newest first.',
   body: `
 <header class="cover compact">
   <div class="wrap cover-inner">

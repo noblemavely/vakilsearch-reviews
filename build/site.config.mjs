@@ -3,11 +3,13 @@
 export const site = {
   domain: 'vakilsearch.reviews',
   origin: 'https://vakilsearch.reviews',
-  name: 'Case File 5509082',
+  // Appended to every page title except the homepage, and used as og:site_name.
+  name: 'VakilSearch Reviews',
   tagline: 'A documented experience with VakilSearch / Zolvit',
   caseRef: '5509082',
   contactEmail: 'noble@mavely.in',
   // Date this build represents. Shown in footers and used for sitemap lastmod.
+  datePublished: '2026-09-02',
   lastUpdated: '2026-09-02',
   lastUpdatedHuman: '2 September 2026',
 };

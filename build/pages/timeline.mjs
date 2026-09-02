@@ -5,9 +5,9 @@ const all = events.map((e) => renderEvent(e, true)).join('\n\n');
 
 export default {
   slug: 'timeline',
-  title: 'Full timeline',
+  title: 'Full timeline: January to August 2026',
   description:
-    'The complete dated chronology of our engagement with VakilSearch / Zolvit, January to August 2026 — every entry tied to a payment record, a document they issued, or correspondence with their staff.',
+    'Month-by-month record of a VakilSearch (Zolvit) succession certificate engagement, January to August 2026, each entry tied to a document.',
   body: `
 <header class="cover compact">
   <div class="wrap cover-inner">

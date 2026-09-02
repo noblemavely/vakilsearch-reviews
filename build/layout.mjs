@@ -1,5 +1,9 @@
 import { site, nav } from './site.config.mjs';
 
+/* Alt text for the social preview image, shared by the Open Graph and Twitter tags. */
+const OG_ALT = 'VakilSearch Reviews — case file 5509082: ten months, one refund request, ' +
+  'no succession certificate.';
+
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;')
   .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
@@ -83,9 +87,22 @@ export function render(page) {
         description: page.description,
         url: canonical,
         dateModified: site.lastUpdated,
+        datePublished: site.datePublished,
         inLanguage: 'en',
         author: { '@type': 'Person', name: 'Noble Mavely' },
+        publisher: { '@type': 'Person', name: 'Noble Mavely' },
+        image: `${site.origin}/assets/img/og-image.png`,
+        about: { '@type': 'Organization', name: 'Vakilsearch Legal Solutions Pvt Ltd',
+                 alternateName: ['VakilSearch', 'Zolvit'] },
       },
+      ...(path === '/' ? [] : [{
+        '@type': 'BreadcrumbList',
+        '@id': `${canonical}#breadcrumb`,
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: `${site.origin}/` },
+          { '@type': 'ListItem', position: 2, name: page.title, item: canonical },
+        ],
+      }]),
       ...(page.jsonLd ? [page.jsonLd] : []),
     ],
   };
@@ -104,12 +121,17 @@ ${page.noindex ? '' : `<link rel="canonical" href="${canonical}">\n`}<meta name=
 <meta property="og:title" content="${esc(page.ogTitle || page.title)}">
 <meta property="og:description" content="${esc(page.description)}">
 <meta property="og:url" content="${canonical}">
-<meta property="og:image" content="${site.origin}/assets/img/og-image.svg">
+<meta property="og:image" content="${site.origin}/assets/img/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:alt" content="${esc(OG_ALT)}">
 <meta property="og:locale" content="en_IN">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="${esc(page.ogTitle || page.title)}">
 <meta name="twitter:description" content="${esc(page.description)}">
-<meta name="twitter:image" content="${site.origin}/assets/img/og-image.svg">
+<meta name="twitter:image" content="${site.origin}/assets/img/og-image.png">
+<meta name="twitter:image:alt" content="${esc(OG_ALT)}">
 
 <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/assets/css/site.css">

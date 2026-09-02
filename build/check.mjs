@@ -57,6 +57,20 @@ for (const file of files) {
   if (!/<h1/.test(html)) errors.push(`${rel}: no <h1>`);
   if (/<img(?![^>]*\salt=)/.test(html)) warnings.push(`${rel}: <img> without alt text`);
 
+  // Search-result truncation limits. Warnings, not errors — a long title is a
+  // judgement call, but it should be a deliberate one.
+  const title = html.match(/<title>([^<]*)<\/title>/);
+  if (title && title[1].length > 60) {
+    warnings.push(`${rel}: <title> is ${title[1].length} chars, likely truncated in search (>60)`);
+  }
+  const desc = html.match(/<meta name="description" content="([^"]*)"/);
+  if (desc && desc[1].length > 160) {
+    warnings.push(`${rel}: meta description is ${desc[1].length} chars, likely truncated (>160)`);
+  }
+  if (!/<meta property="og:image" content="[^"]+\.png"/.test(html)) {
+    errors.push(`${rel}: og:image must be a PNG — SVG previews do not render on any major platform`);
+  }
+
   // No third-party origins beyond the documented allowlist. The CSP in
   // public/_headers must stay in step with this list.
   for (const m of html.matchAll(/(?:src|href)="(https?:\/\/[^"]+)"/g)) {
