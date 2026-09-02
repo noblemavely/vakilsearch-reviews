@@ -6,15 +6,15 @@ const keyEvents = events.filter((e) => e.key).map((e) => renderEvent(e, false)).
 
 export default {
   slug: '',
-  title: 'VakilSearch Review',
-  ogTitle: 'Ten months, one refund request, no succession certificate.',
+  title: 'VakilSearch Reviews',
+  ogTitle: 'VakilSearch Reviews: ten months, one refund request, no certificate',
   description:
-    'A dated, document-backed account of a ₹65,000 succession certificate engagement with VakilSearch (Zolvit) that ran ten months without delivery. Consumer complaint pending before the District Consumer Disputes Redressal Commission, Thane.',
+    'A dated, document-backed account of a ₹65,000 VakilSearch (Zolvit) succession certificate engagement that ran ten months without delivery.',
   body: `
 <header class="cover">
   <div class="wrap cover-inner">
     <span class="case-tag">CASE REF #5509082 &nbsp;·&nbsp; COMPLAINT FILED WITH DISTRICT CONSUMER DISPUTES REDRESSAL COMMISSION, THANE</span>
-    <h1 class="title">Ten months, one refund request, no succession certificate.</h1>
+    <h1 class="title">Ten months with VakilSearch, one refund request, no succession certificate.</h1>
     <p class="subtitle">A documented account of our family's engagement with VakilSearch (Zolvit) for a succession certificate following my father's death — told in dates, receipts, and their own team's words.</p>
     <div class="cover-meta">
       <div><div class="k">Paid upfront</div><div class="v red">₹65,000</div></div>

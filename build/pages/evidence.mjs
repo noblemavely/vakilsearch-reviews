@@ -2,9 +2,9 @@ import { pagenav } from '../layout.mjs';
 
 export default {
   slug: 'evidence',
-  title: 'Evidence register',
+  title: 'Evidence and documents',
   description:
-    'The documents behind this account: payment confirmation, VakilSearch\'s own case brief, the third-party invoice, and correspondence — what each one shows, and what we have deliberately chosen not to publish.',
+    'The documents behind this VakilSearch account: the ₹65,000 payment, their own case brief, a third-party invoice, and what is not published.',
   body: `
 <header class="cover compact">
   <div class="wrap cover-inner">

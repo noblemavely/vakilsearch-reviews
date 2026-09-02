@@ -2,9 +2,9 @@ import { pagenav } from '../layout.mjs';
 
 export default {
   slug: 'complaint',
-  title: 'The consumer complaint',
+  title: 'Consumer complaint: status',
   description:
-    'Status of the consumer complaint filed against VakilSearch / Zolvit before the District Consumer Disputes Redressal Commission, Thane — what was filed, the relief sought, and what happens next.',
+    'Status of the consumer complaint against VakilSearch / Zolvit before the District Consumer Commission, Thane. Pending, not yet decided.',
   body: `
 <header class="cover compact">
   <div class="wrap cover-inner">
