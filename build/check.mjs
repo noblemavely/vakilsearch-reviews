@@ -107,8 +107,69 @@ for (const file of files) {
   }
 }
 
-for (const required of ['sitemap.xml', 'robots.txt', '_headers', '_redirects', '404.html']) {
+for (const required of ['sitemap.xml', 'robots.txt', 'llms.txt', '_headers', '_redirects', '404.html']) {
   if (!(await exists(join(pub, required)))) errors.push(`public/${required} is missing`);
+}
+
+/* The sitemap is what Search Console consumes, so it has to agree exactly with
+   what is actually published: every indexable page listed once, nothing that is
+   noindex, and every URL identical to that page's own canonical tag. Without
+   this, adding a page and forgetting the sitemap fails silently. */
+if (await exists(join(pub, 'sitemap.xml'))) {
+  const xml = await readFile(join(pub, 'sitemap.xml'), 'utf8');
+  const listed = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
+
+  if (new Set(listed).size !== listed.length) {
+    errors.push('sitemap.xml: contains duplicate <loc> entries');
+  }
+
+  const canonicals = [];
+  for (const file of files) {
+    const html = await readFile(file, 'utf8');
+    if (/<meta name="robots" content="noindex/.test(html)) {
+      const c = html.match(/<link rel="canonical" href="([^"]+)"/);
+      if (c && listed.includes(c[1])) {
+        errors.push(`sitemap.xml: lists ${c[1]}, which is noindex`);
+      }
+      continue;
+    }
+    const c = html.match(/<link rel="canonical" href="([^"]+)"/);
+    if (c) canonicals.push(c[1]);
+  }
+
+  for (const url of canonicals) {
+    if (!listed.includes(url)) errors.push(`sitemap.xml: missing indexable page ${url}`);
+  }
+  for (const url of listed) {
+    if (!canonicals.includes(url)) {
+      errors.push(`sitemap.xml: lists ${url}, which is not a canonical URL of any built page`);
+    }
+  }
+  if (!/^<\?xml version="1\.0" encoding="UTF-8"\?>/.test(xml)) {
+    errors.push('sitemap.xml: missing or malformed XML declaration');
+  }
+}
+
+/* robots.txt must point crawlers at the sitemap, and must not accidentally
+   disallow the site it exists to get indexed. */
+if (await exists(join(pub, 'robots.txt'))) {
+  const txt = await readFile(join(pub, 'robots.txt'), 'utf8');
+  if (!txt.includes('sitemap.xml')) errors.push('robots.txt: no Sitemap: line');
+  if (/^Disallow:\s*\/\s*$/m.test(txt)) errors.push('robots.txt: blanket "Disallow: /" blocks the whole site');
+}
+
+/* llms.txt must list every indexable page, so a model reading it sees the whole
+   site rather than whichever pages happened to be linked when it was written. */
+if (await exists(join(pub, 'llms.txt'))) {
+  const txt = await readFile(join(pub, 'llms.txt'), 'utf8');
+  if (!txt.startsWith('# ')) errors.push('llms.txt: must open with an H1');
+  if (!/\n> /.test(txt)) errors.push('llms.txt: must carry a blockquote summary');
+  for (const file of files) {
+    const html = await readFile(file, 'utf8');
+    if (/<meta name="robots" content="noindex/.test(html)) continue;
+    const c = html.match(/<link rel="canonical" href="([^"]+)"/);
+    if (c && !txt.includes(`(${c[1]})`)) errors.push(`llms.txt: does not link ${c[1]}`);
+  }
 }
 
 warnings.forEach((w) => console.warn('warn:', w));
