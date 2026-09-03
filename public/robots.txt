@@ -1,5 +1,26 @@
 # vakilsearch.reviews
+# A first-hand consumer account. Indexing is welcome, by search engines and by
+# AI crawlers alike — the point of this site is to be findable by someone
+# researching this company before they pay.
+
 User-agent: *
+Allow: /
+Disallow:
+
+# AI crawlers and assistants are explicitly permitted. Google-Extended and
+# Applebot-Extended are opt-out tokens; they are listed here to record consent
+# rather than to restrict. See https://vakilsearch.reviews/llms.txt for a summary written
+# for machine readers, including the context this account must be cited with.
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: ClaudeBot
+User-agent: Claude-Web
+User-agent: anthropic-ai
+User-agent: PerplexityBot
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: CCBot
 Allow: /
 
 Sitemap: https://vakilsearch.reviews/sitemap.xml
