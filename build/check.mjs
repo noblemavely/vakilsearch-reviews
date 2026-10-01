@@ -18,6 +18,11 @@ const warnings = [];
      link the visitor chooses to follow, not a resource the page loads. */
 const ALLOWED_EXTERNAL = [
   'https://www.youtube.com/watch?v=',
+  // Official Indian government consumer-redress portals, cited on the
+  // consumer-complaint guide. Outbound links a reader chooses to follow, not
+  // resources the page loads, so the Content-Security-Policy is unaffected.
+  'https://edaakhil.nic.in/',
+  'https://consumerhelpline.gov.in/',
 ];
 
 async function walk(dir) {

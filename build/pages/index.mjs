@@ -41,6 +41,12 @@ export default {
       verbatim. Where something is our characterisation rather than a document, we say so.</p>
     <p>A formal consumer complaint on these facts is pending. Nothing here has been decided by any court,
       and we have deliberately kept this page to what we can evidence.</p>
+    <p>If you landed here while deciding whether to engage them, two pages will be more use than this
+      one: <a href="/succession-certificate-cost/">what a succession certificate actually costs</a>,
+      because the quoted fee is rarely the whole bill, and
+      <a href="/before-you-pay/">the questions to ask before you transfer anything</a>. If you have
+      already paid and nothing is happening, <a href="/consumer-complaint/">how we filed a consumer
+      complaint</a> sets out the route.</p>
   </section>
 
   <section id="video">
@@ -145,16 +151,17 @@ ${keyEvents}
         <p>What was filed, where, what relief we are asking for, and what stage it is at.</p>
         <span class="go">Status →</span>
       </a>
-      <a class="card link" href="/before-you-pay/">
-        <h3>Before you pay anyone</h3>
-        <p>Nine questions we wish we had asked in January, written for anyone weighing an
-          upfront legal-services fee.</p>
-        <span class="go">Checklist →</span>
+      <a class="card link" href="/guides/">
+        <h3>Guides</h3>
+        <p>What a succession certificate actually costs, the nine questions to ask before
+          paying, and how we filed a consumer complaint.</p>
+        <span class="go">Read →</span>
       </a>
-      <a class="card link" href="/updates/">
-        <h3>Updates</h3>
-        <p>Every change to this account, dated. If the matter resolves, it will be recorded here first.</p>
-        <span class="go">Log →</span>
+      <a class="card link" href="/faq/">
+        <h3>Questions and answers</h3>
+        <p>Is Zolvit the same company? Do they refund? Why this page does not use the word
+          "scam". The questions we were asking ourselves.</p>
+        <span class="go">FAQ →</span>
       </a>
     </div>
   </section>

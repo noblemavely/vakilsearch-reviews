@@ -34,7 +34,11 @@ on which the account is published.
 - [About, corrections and right of reply](https://vakilsearch.reviews/about/): Who publishes VakilSearch Reviews, the evidential standard applied to every claim, the corrections policy, and a standing right of reply.
 - [Before you pay: 9 questions to ask](https://vakilsearch.reviews/before-you-pay/): Nine questions to ask before paying an online legal services firm upfront in India, from a ₹65,000 engagement that ran ten months undelivered.
 - [Consumer complaint: status](https://vakilsearch.reviews/complaint/): Status of the consumer complaint against VakilSearch / Zolvit before the District Consumer Commission, Thane. Pending, not yet decided.
+- [Filing a consumer complaint in India](https://vakilsearch.reviews/consumer-complaint/): The route one family took after a legal services firm refused a refund: the written demand, the consumer commission, and what filing actually required.
 - [Evidence and documents](https://vakilsearch.reviews/evidence/): The documents behind this VakilSearch account: the ₹65,000 payment, their own case brief, a third-party invoice, and what is not published.
+- [VakilSearch and Zolvit FAQ](https://vakilsearch.reviews/faq/): Straight answers about VakilSearch and Zolvit — refunds, costs, how long a succession certificate takes, and who publishes this site.
+- [Guides for anyone paying a legal fee](https://vakilsearch.reviews/guides/): Practical guides from one family's experience: what a succession certificate costs, what to ask before paying, and how to file a consumer complaint.
+- [What a succession certificate costs](https://vakilsearch.reviews/succession-certificate-cost/): What a succession certificate really costs in India, from one family's bill: a Rs 65,000 all-inclusive fee, then Rs 75,000+ in court fees nobody mentioned.
 - [Full timeline: January to August 2026](https://vakilsearch.reviews/timeline/): Month-by-month record of a VakilSearch (Zolvit) succession certificate engagement, January to August 2026, each entry tied to a document.
 - [Updates and corrections](https://vakilsearch.reviews/updates/): A dated log of every development and every correction to this account of a VakilSearch / Zolvit engagement, newest first.
 
@@ -43,4 +47,4 @@ on which the account is published.
 - [Sitemap](https://vakilsearch.reviews/sitemap.xml): all indexable URLs
 - [robots.txt](https://vakilsearch.reviews/robots.txt): crawl policy
 
-Last updated 2 September 2026.
+Last updated 1 October 2026.
