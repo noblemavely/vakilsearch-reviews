@@ -1,4 +1,5 @@
 import { pagenav } from '../layout.mjs';
+import { site } from '../site.config.mjs';
 
 export default {
   slug: 'complaint',
@@ -19,7 +20,8 @@ export default {
   <section id="status">
     <div class="kicker">Current status</div>
     <h2>Where it is right now</h2>
-    <p><span class="pill open">Pending — not yet adjudicated</span></p>
+    <p><span class="pill open">Pending — not yet adjudicated</span>
+      &nbsp; <small>Status last confirmed ${site.statusConfirmedHuman}</small></p>
     <p>A consumer complaint arising from the facts set out on this site has been filed with the
       <strong>District Consumer Disputes Redressal Commission, Thane</strong>, under the Consumer
       Protection Act, 2019. It has not been heard on its merits and no finding has been made against
@@ -31,7 +33,10 @@ export default {
       <p>Nothing on these pages is a court finding. This is our account of our own experience, supported
         by documents we hold. Where we describe what a VakilSearch staff member said or did, we are
         reporting what happened to us — not asserting a legal conclusion about it. The Commission decides
-        that, and it hasn't yet.</p>
+        that, and it had not when this status was last confirmed.</p>
+      <p>Pages elsewhere on this site may have been edited more recently than the status above was
+        rechecked. The date on this page is the one that governs any claim about where the matter
+        stands.</p>
     </div>
   </section>
 

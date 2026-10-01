@@ -4,6 +4,20 @@ import { pagenav } from '../layout.mjs';
    a refund, a hearing date, a correction, a response from VakilSearch. */
 const entries = [
   {
+    date: '1 October 2026',
+    status: 'open',
+    statusLabel: 'Unresolved',
+    title: 'Guides and an FAQ added',
+    body: `<p>Added three pages drawn from the same engagement:
+      <a href="/succession-certificate-cost/">what a succession certificate actually cost us</a>,
+      <a href="/consumer-complaint/">how we filed a consumer complaint</a>, and an
+      <a href="/faq/">FAQ</a>. They exist because the questions they answer are the ones we were
+      searching for ourselves in January 2026 and could not find an honest answer to.</p>
+      <p><strong>No change to the dispute itself.</strong> The status of the refund and of the
+      complaint has not been rechecked since 2 September 2026, and every claim about where the matter
+      stands still carries that date. Editing a guide does not make those claims newer.</p>`,
+  },
+  {
     date: '2 September 2026',
     status: 'open',
     statusLabel: 'Unresolved',

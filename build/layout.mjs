@@ -36,8 +36,9 @@ ${links}
   between January and August 2026, under their reference <span class="mono">#${site.caseRef}</span>.
   All dates, figures and quotations are drawn from our own payment records, documents issued
   to us by VakilSearch, and our correspondence with their staff, all of which we retain in full.</p>
-  <p>A formal consumer complaint on these facts is <strong>pending</strong> before the District
-  Consumer Disputes Redressal Commission, Thane. Nothing here has been adjudicated. This is an
+  <p>A formal consumer complaint on these facts was <strong>pending</strong> before the District
+  Consumer Disputes Redressal Commission, Thane when the status was last confirmed on
+  ${site.statusConfirmedHuman}. Nothing here has been adjudicated. This is an
   account of what we experienced and can document &mdash; not a finding of wrongdoing by any court.
   We will update these pages if and when the matter is resolved, and we will correct any factual
   error brought to our attention. See our
